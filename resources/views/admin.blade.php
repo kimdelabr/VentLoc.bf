@@ -3,3 +3,4 @@
 @section("contenu")
     <livewire:counter />
 @endsection
+

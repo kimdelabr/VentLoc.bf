@@ -15,9 +15,14 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->string("nom")->unique();
+            $table->string("nom");
+            $table->float("prix");
+            $table->string("description");
+            $table->integer("quantite");
             $table->string("noSerie")->unique();
-            $table->string("imageUrl")->nullable();
+            $table->string("imageUrlPrincipale")->nullable();
+            $table->string("imageUrlSeconde")->nullable();
+            $table->string("imageUrlTroisieme")->nullable();
             $table->boolean("estDisponible")->default(1);
             $table->foreignId("type_article_id")->constrained();
             $table->timestamps();

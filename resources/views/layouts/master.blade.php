@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AdminLTE 3 | Starter</title>
+<title>Administration</title>
 
 <link rel="stylesheet" href="{{mix("css/app.css")}}" />
 
@@ -21,7 +21,7 @@
 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
 </li>
 <li class="nav-item d-none d-sm-inline-block">
-<a href="index3.html" class="nav-link">Home</a>
+<a href="/admin" class="nav-link">Home</a>
 </li>
 <li class="nav-item d-none d-sm-inline-block">
 <a href="#" class="nav-link">Contact</a>
@@ -182,41 +182,92 @@ Nora Silvester
 </div>
 
 <nav class="mt-2">
-<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-<li class="nav-item menu-open">
-<a href="#" class="nav-link active">
-<i class="nav-icon fas fa-tachometer-alt"></i>
-<p>
-Starter Pages
-<i class="right fas fa-angle-left"></i>
-</p>
-</a>
-<ul class="nav nav-treeview">
-<li class="nav-item">
-<a href="#" class="nav-link active">
-<i class="far fa-circle nav-icon"></i>
-<p>Active Page</p>
-</a>
-</li>
-<li class="nav-item">
-<a href="#" class="nav-link">
-<i class="far fa-circle nav-icon"></i>
-<p>Inactive Page</p>
-</a>
-</li>
-</ul>
-</li>
-<li class="nav-item">
-<a href="#" class="nav-link">
-<i class="nav-icon fas fa-th"></i>
-<p>
-Simple Link
-<span class="right badge badge-danger">New</span>
-</p>
-</a>
-</li>
-</ul>
+            <li class="nav-item menu-open">
+                <a href="/admin/" class="nav-link active">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                Dashboard
+                
+                </p>
+                </a>
+                
+            </li>
+
+            
+            <li class="nav-item menu-open">
+                <a href="#" class="nav-link active">
+                  <i class="nav-icon fas fa-edit"></i>
+                  <p>
+                    Pages
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="/admin/pages/home" class="nav-link active">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Acceuil</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="admin/pages/articles" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Articles</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Article-detail</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Panier</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../forms/editors.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Blog</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Blog-deatail</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>About</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Contact</p>
+                    </a>
+                  </li>
+                  
+                </ul>
+            </li>
+
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                Simple Link
+                <span class="right badge badge-danger">New</span>
+                </p>
+                </a>
+            </li>
+        </ul>
 </nav>
 
 </div>
@@ -253,9 +304,7 @@ Simple Link
 
 <footer class="main-footer">
 
-<div class="float-right d-none d-sm-inline">
-Anything you want
-</div>
+
 
 <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
 </footer>
