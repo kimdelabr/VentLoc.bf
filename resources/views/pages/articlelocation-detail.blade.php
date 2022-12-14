@@ -119,7 +119,7 @@
 						</h4>
 
 						<span class="mtext-106 cl2">
-							${{$article->prix}} 
+							{{$article->prix}} F CFA/JOUR
 						</span>
 
 						<p class="stext-102 cl3 p-t-23">
@@ -137,49 +137,42 @@
 							<form action="{{route('cart_add',['id'=>$article->id])}}" method="POST" id="panier_add">
 							@include('sweetalert::alert')
              			   @csrf
-								<div class="flex-w flex-r-m p-b-10">
-										<div class="size-203 flex-c-m respon6">
-											Size
-										</div>
+							
+								
 
-										<div class="size-204 respon6-next">
-											<div class="rs1-select2 bor8 bg0">
-												<select class="js-select2" name="size_article">
-													<option>Choose an option</option>
-													<option>Size S</option>
-													<option>Size M</option>
-													<option>Size L</option>
-													<option>Size XL</option>
-												</select>
-												<div class="dropDownSelect2"></div>
-											</div>
-										</div>
+								<div class="size-204 respon6-next">
+									<div class="rs1-select2 bor8 bg0">
+										<select class="js-select2" name="lieuprise">
+											<option>Lieu de prise</option>
+											<option>Patte d'oie</option>
+											<option>Ouaga 2000</option>
+											<option>Tampouy</option>
+											<option>Karpala</option>
+										</select>
+										<div class="dropDownSelect2"></div>
 									</div>
+								
 
-								<div class="flex-w flex-r-m p-b-10">
-									<div class="size-203 flex-c-m respon6">
-										Color
-									</div>
-
-									<div class="size-204 respon6-next">
-										<div class="rs1-select2 bor8 bg0">
-											<select class="js-select2" name="color_article">
-												<option>Choose an option</option>
-												<option>Red</option>
-												<option>Blue</option>
-												<option>White</option>
-												<option>Grey</option>
-											</select>
-											<div class="dropDownSelect2"></div>
-										</div>
-									</div>
-								</div>
+						<!-- 	<label for="lieuprise">Lieu de prise </label>
+							<input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" id="lieuprise" type="text" name="coupon" placeholder="Lieu de prise"> -->
+							<label for="dateprise">Date de prise</label>
+							<input style="width:315px;" class="stext-104 cl2  plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" id="dateprise" type="datetime-local" name="dateprise" placeholder="Date de prise">
+							<label for="daterestitue"> Date de restitution</label>
+							<input style="width:315px;" class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" id="daterestitue" type="datetime-local" name="daterestitue" placeholder="Date de restitution">
+							
+								<label for="servicechauffeur">Service avec chauffeur</label>
+								<input type="checkbox" name="servicechauffeur" id="servicechauffeur">	
+								
+								
+								
+							
+							
 							
 
 								<div class="flex-w flex-r-m p-b-10">
 										<div class="size-204 flex-w flex-m respon6-next">
 											<div class="wrap-num-product flex-w m-r-20 m-tb-10">
-												<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+												<!-- <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
 													<i class="fa fa-minus"></i>
 												</div>
 
@@ -187,11 +180,12 @@
 
 												<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
 													<i class="fa fa-plus"></i>
-												</div>
-										</div>																
-											<button type="submit" form="panier_add" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 ">
-												Ajouter au panier
+												</div> -->
+												<button type="submit" form="panier_add" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 ">
+												Reserver
 											</button>
+										</div>																
+											
 									</div>
 								</div>
 							</form>	

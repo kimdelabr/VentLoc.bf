@@ -64,17 +64,19 @@
 	<section class="sec-product-detail bg0 p-t-65 p-b-60">
 		<div class="container">
 			<div class="row">
+			
 				<div class="col-md-6 col-lg-6 p-b-30">
+				<form action="/publier" method="POST" id="publier_article">
 					<div class="p-l-25 p-r-30 p-lr-0-lg">
 						
 						<h1 class="ltext-105">  Publication d'un article</h1>
 
 						<br> 
-						<input type="text"  style="width:315px;" class="stext-104 cl2  plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5"name="" id="" placeholder="Nom de l'article">
+						<input type="text"  style="width:315px;" class="stext-104 cl2  plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5"name="nomArticle" id="" placeholder="Nom de l'article">
 						<br>
-						<input type="textarea"  style="width:315px;" class="stext-104 cl2  plh4 size-120 bor13 p-lr-20 m-r-10 m-tb-5"name="" id="" placeholder="Description de l'article">
+						<input type="textarea"  style="width:315px;" class="stext-104 cl2  plh4 size-120 bor13 p-lr-20 m-r-10 m-tb-5"name="description" id="" placeholder="Description de l'article">
 						<br>
-						<input type="number"  style="width:315px;" class="stext-104 cl2  plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5"name="" id="" placeholder="Prix"> 
+						<input type="number"  style="width:315px;" class="stext-104 cl2  plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5"name="prixArticle" id="" placeholder="Prix"> 
 
 
 					</div>
@@ -91,7 +93,7 @@
 						
 						
 						<div class="p-t-25">
-							<form action="" method="POST" id="panier_add">
+							
 							@include('sweetalert::alert')
              			   @csrf
 							
@@ -99,10 +101,10 @@
 
 								<div class="size-204 respon6-next" style="width:315px;">
 									<div class="rs1-select2 bor8 bg0">
-										<select class="js-select2" name="time" >
+										<select class="js-select2" name="typeArticle" >
 											<option>Type d'article</option>
 											<option>Voiture</option>
-											<option>Pièce détachée/option>
+											<option>Pièce détachée</option>
 											<option>Location</option>
 											<option>Vente</option>
 										</select>
@@ -110,14 +112,14 @@
 									</div>
 								
 							<br>
-							<input style="width:315px;" class="stext-104 cl2  plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" id="" type="number" name="" placeholder="Quantité">
+							<input style="width:315px;" class="stext-104 cl2  plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" id="" type="number" name="quantite" placeholder="Quantité">
 							<br>
-							<input style="width:315px;" class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" id="" type="text" name="" placeholder="Numéro de série">
+							<input style="width:315px;" class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" id="" type="text" name="numserie" placeholder="Numéro de série">
 							<br>
-							<input type="file" accept="image/*" style="width:315px;" class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5 form-control-file" name="" id="">
+							<input type="file" accept="image/*" style="width:315px;" class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5 form-control-file" name="imagearticle" id="">
 							
-								<label for="servicechauffeur"> Accepter <a href=""> les termes et conditions</a></label>
-								<input type="checkbox" name="" id="servicechauffeur">	
+								<label for="termsconditions"> Accepter <a href=""> les termes et conditions</a></label>
+								<input type="checkbox" name="termsconditions" id="termsconditions">	
 								
 								
 								
@@ -137,7 +139,7 @@
 												<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
 													<i class="fa fa-plus"></i>
 												</div> -->
-												<button type="submit" form="panier_add" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 ">
+												<button type="submit" form="publier_article" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 ">
 												Publier
 											</button>
 										</div>																

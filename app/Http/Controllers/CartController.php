@@ -13,17 +13,36 @@ class CartController extends Controller
             $article = Article::find($articleId);
             $rowId=456;
             $userID=2;
+            if($article->type_article_id != 4){
 
-            Cart::add(array(
-            'id' => $article->id,
-            'name' =>$article->nom,
-            'price' => $article->prix,
-            'quantity' => $request->quantite_article,
-            'attributes' => array('size'=>$request->size_article,
-            'color'=>$request->color_article,
-            'image'=>$article->imageUrlPrincipale,
-            'prix_ttc'=>$article->prixTTC())
-            ));
+                Cart::add(array(
+                'id' => $article->id,
+                'name' =>$article->nom,
+                'price' => $article->prix,
+                'quantity' => $request->quantite_article,
+                'attributes' => array('size'=>$request->size_article,
+                'color'=>$request->color_article,
+                'image'=>$article->imageUrlPrincipale,
+                'prix_ttc'=>$article->prixTTC())
+                ));
+            }
+            else{
+
+
+                Cart::add(array(
+                    'id' => $article->id,
+                    'name' =>$article->nom,
+                    'price' => $article->prix,
+                    'quantity' => 1,
+                    'attributes' => array('lieuprise'=>$request->lieuprise,
+                    'dateprise'=>$request->dateprise,
+                    'daterestitution'=>$request->daterestitue,
+                    'avecchauffeur'=>$request->servicechauffeur,
+                    'image'=>$article->imageUrlPrincipale,
+                    'prix_ttc'=>$article->prixTTC())
+                    ));
+
+            }
 
         return redirect(route('cart_index'));
     }
@@ -34,7 +53,7 @@ class CartController extends Controller
        $prix_htc= Cart::getTotal();
         
         $condition = new \Darryldecode\Cart\CartCondition(array(
-            'name' => 'VAT 18%',
+            'name' => 'TVA 18%',
             'type' => 'tax',
             'target' => 'subtotal', // this condition will be applied to cart's subtotal when getSubTotal() is called.
             'value' => '18%'
@@ -43,15 +62,19 @@ class CartController extends Controller
         
         Cart::condition($condition);
         
-        $prix_ttc= Cart::getSubTotal();
-        
-        $tva= $prix_ttc - $prix_ttc;
+        $prix_htc= Cart::getSubTotal();
+        $quantite = 4;
+        $tva= $prix_htc*0.18 ;
+        $prix_ttc = $prix_htc*1.18;
 
          /* dd($contents);  */
         return view('pages/shoping-cart', compact('contents', 'prix_ttc','prix_htc','tva'));
+        return view('header', compact('quantite'));
+        return view('header3', compact('quantite'));
     }
 
     public function applyCoupon(){
+        if($request->coupon=="fasoeasycoupon1"){
         $coupon_name=$request->coupon;//on cherce les infos du coupon
         $coupon_value = '-5%';
         $article = Article::find($request->id);
@@ -62,8 +85,8 @@ class CartController extends Controller
             'value' => '-5%',
         ));
 
-        Cart::addItemCondition($productID, $coupon);
-
+        Cart::addItemCondition($article->id, $coupon);
+        }
         return redirect(route('cart_index'));
         
 

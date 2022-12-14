@@ -29,15 +29,18 @@ Route::get('/blog-detail',[MainController::class,'blogdetail']);
 Route::get('/blog',[MainController::class,'blog']);
 Route::get('/contact',[MainController::class,'contact']);
 Route::get('/article-detail/{id}',[ArticleController::class,'article'])->name('voir_article');
+Route::get('/articlelocation-detail/{id}',[ArticleController::class,'articlelocation'])->name('voir_articlelocation');
 Route::get('/articles',[ArticleController::class,'index'])->name('article_index');
 Route::get('/type-articles/{id}',[ArticleController::class,'viewByType'])->name('article_type');
 Route::get('/tag/{id}',[ArticleController::class,'viewByTag'])->name('article_type_par_tag');
 Route::get('/panier',[CartController::class,'index'])->name('cart_index');
 Route::post('/panier/add/{id}',[CartController::class,'add'])->name('cart_add');
+
+/* Route::post('/panier/add/{id}',[CartController::class,'add'])->name('cart_add'); */
 Route::post('/panier/apply-coupon/',[CartController::class,'applyCoupon'])->name('apply_coupon');
 Route::get('/panier/update-cart/',[CartController::class,'updateCart'])->name('update_cart');
-
-
+Route::view('/publier','pages/publier-article');
+Route::post('/publier',[ArticleController::class,'publier'])->name('publier_article');
 
 
 Route::middleware([
@@ -54,7 +57,7 @@ Route::middleware([
 
 });
 
-Route::view('/publier','pages/publier-article');
+
 Route::view('/test','test');
     Route::view('/admin','pages/Admin/dashboard');
     Route::view('/admin/pages/home','pages/Admin/home');

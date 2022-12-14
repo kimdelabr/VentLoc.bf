@@ -16,6 +16,7 @@
 								<li><a href="/">Accueil</a></li>
 								<li><a href="/articles">Articles</a></li>
 								<li><a href="/articles">Location</a></li>
+								<li><a href="/publier">Publier</a></li>
 								<li><a href="/panier">Panier</a></li>
 								<li><a href="/blog">blog</a></li>
 								<li><a href="/apropos">A propos</a></li>
@@ -34,7 +35,7 @@
 								<li class="checkout js-show-cart">
 									<a href="#" style="color: #000000">
 										<i class="fa fa-shopping-cart " aria-hidden="true"></i>
-										<span id="checkout_items" class="checkout_items">2</span>
+										<span id="checkout_items" class="checkout_items">{{ $quantite ?? '' }}</span>
 									</a>
 								</li>
 							</ul>
@@ -66,7 +67,7 @@
 								<li class="checkout js-show-cart">
 									<a href="#" style="color: #000000">
 										<i class="fa fa-shopping-cart " aria-hidden="true"></i>
-										<span id="checkout_items" class="checkout_items">2</span>
+										<span id="checkout_items" class="checkout_items">{{ $quantite ?? '' }}</span>
 									</a>
 								</li>
 							</ul>
@@ -90,6 +91,7 @@
 								<li><a href="#">Mon compte</a></li>
 								<li><a href="/articles">Articles</a></li>
 								<li><a href="/articles">Location</a></li>
+								<li><a href="/publier">Publier</a></li>
 								<li><a href="/panier">Panier</a></li>
 								<li><a href="/blog">blog</a></li>
 								<li><a href="/apropos">A propos</a></li>

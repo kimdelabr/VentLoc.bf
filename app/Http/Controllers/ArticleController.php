@@ -33,6 +33,13 @@ class ArticleController extends Controller
         return view('/pages/article-detail', compact('article'));
     }
 
+    public function articlelocation(Request $request){
+        $id=$request->id;
+        $article=Article::find($id);
+       
+        return view('/pages/articlelocation-detail', compact('article'));
+    }
+
     public function viewByType(Request $request){
         $matches = ['parent_id'=>null];
         $id=$request->id;
@@ -61,16 +68,17 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function publier()
     {
-        $urlImageArticle = "images/";
-        $nomArticle = request('nomArticleAdmin');
-        $prixrticle = request('prixArticleAdmin');
-        $typeArticle = request('typeArticleAdmin');
-        $descriptionArticle = request('descriptionArticleAdmin');
-        $quantiteArticle = request('quantiteArticleAdmin');
-        $numSerieArticle = request('numSerieArticleAdmin');
-        $urlImageArticle.=request('urlImageArticleAdmin');
+        
+        if(request('termsconditions')=='on'){
+        $nomArticle = request('nomArticle');
+        $prixrticle = request('prixArticle');
+        $typeArticle = request('typeArticle');
+        $descriptionArticle = request('description');
+        $quantiteArticle = request('quantite');
+        $numSerieArticle = request('numserie');
+        $urlImageArticle = "images/".request('imagearticle');
 
         
         if($typeArticle == "Voiture"){
@@ -78,6 +86,12 @@ class ArticleController extends Controller
         }
         if($typeArticle == "Pièce détachée"){
             $typeArticle =2;
+        }
+        if($typeArticle == "Vente"){
+            $typeArticle =3;
+        }
+        if($typeArticle == "Location"){
+            $typeArticle =4;
         }
 
         Article::create([
@@ -91,8 +105,12 @@ class ArticleController extends Controller
             'imageUrlTroisieme' =>$urlImageArticle,
             'type_article_id' =>$typeArticle
         ]);
-        Alert::success('Enregistré');
-        return redirect()->back();
+        Alert::success('Publié');
+    }
+    else{
+        Alert::error('Veuilez accepter les termes et conditions');
+    }
+        return redirect()->back()->withinput();
 
     }
 
